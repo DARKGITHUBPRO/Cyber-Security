@@ -1,0 +1,100 @@
+# SPEED TEST project
+# BY MOHAMED ALAA
+import time
+import os
+from speedtest import Speedtest
+import subprocess as sub
+os.system("cls")
+
+# first fun for wifi test
+
+def WIFI ():
+      wifi = Speedtest()
+
+      print ('\n \33[36;1m============================== \33[39m\n')
+
+      print ('\33[31;1m Wait , Getting Download Speed... \33[39m')
+
+      print ('\n\33[30;1m============================== \33[39m')
+      time.sleep(.1)
+
+
+      download = wifi.download()
+      # بدايه
+      print ('\n\33[33;1m============================== \33[39m')
+
+      print (f"\n\33[32;1mYour Download Speed: {download / 1024 / 1024:.2f} (mbp/s)  \33[39m")
+
+      print ('\n\33[36;1m============================== \33[39m')
+      # نهايه
+
+
+
+      # بدايه انتظار ظهور سرعه الرفع
+      print ('\n\33[32;1m============================== \33[39m')
+
+      print ('\n\33[36;1m Wait Getting Upload Speed...\n \33[39m')
+
+      print ('\33[35;1m============================== \33[39m\n')
+      # نهايه انتظار ظهور سرعه الرفع
+
+      time.sleep(.1)
+
+      upload = wifi.upload()
+      # بدايه 
+      print ('\33[31;1m============================== \33[39m')
+
+      print (f"\33[35;1m\nYour Upload Speed : {upload / 1024 / 1024:.2f} (mbp/s) \33[39m")
+
+      print ('\n\33[33;1m============================== \33[39m\n')
+      # نهايه
+
+      # بدايه 
+      print ('\33[36;1m============================== \33[39m')
+
+      print ('\33[32;1mSpeed Test Is Completed \33[39m')
+
+      print ('\33[30;1m============================== \33[39m')
+      # نهايه
+
+      show_all = input ('\nDo You Show All Reslut Of  Bit Number (Yes - No) : ').lower()
+
+      if show_all == 'yes':
+        print (f'\33[31;1m\n  (Note This Is A Bit Number..) All Result Is \33[39m : Is Upload : {upload} (Bit/s) , Is Download : {download}  (Bit/s) \33[39m')
+
+      else:
+        print ('\nThe Code Is Finished..')
+
+
+      all = input ('\nDo You Show All Result Of Mbp Number : ').lower()
+
+
+      if all == 'yes':
+        print (f'\n\33[31;1m (Note This Is A Mbp Number..) All Result Is\33[39m : Is Upload : {upload / 1024 / 1024:.2f}  (Mbp/s) , Is Download : {download / 1024 / 1024:.2f}  (Mbp/s) \33[39m')
+        
+
+      else:
+            print ('\33[30m\n The Code Is Finished , Thank You For Use Tool.. (By / Mohamed Alaa )\33[39m \n')
+            quit()
+
+      print ('\n\33[32;1m============================== \33[39m')
+
+      print ('\33[30m\n The Code Is Finished , Thank You For Use Tool.. (By / Mohamed Alaa )\33[39m \n')
+
+
+# Version : 1.1.0.0
+
+# BY / MOHAMED ALAA
+# TIME/ 6:40pm
+# DAY/ MONDAY
+# DATE/ 40 OCTOBER
+# YEAR/ 2023
+
+# NOTE  RESLUT NUMBER WITH Mbp / s
+# NOTE  RESLUT NUMBER WITH Mbp / s
+# NOTE  RESLUT NUMBER WITH Mbp / s
+# NOTE  RESLUT NUMBER WITH Mbp / s
+# NOTE  RESLUT NUMBER WITH Bit / s
+# NOTE  RESLUT NUMBER WITH Bit / s
+# NOTE  RESLUT NUMBER WITH Bit / s
+# NOTE  RESLUT NUMBER WITH Bit / s
