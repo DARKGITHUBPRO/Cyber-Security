@@ -1,8 +1,12 @@
 from tkinter import Menu
 import os
-from tkinter import Tk, Label, Button, filedialog, messagebox, Frame
+from tkinter import Tk, Label, Button, filedialog, messagebox, Frame , Entry , ttk
+from tkinter.constants import CENTER
+
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
+from PIL.ImageOps import expand
+
 #=========================================================================
 
 # اختيــــار صيغ الملف
@@ -67,7 +71,8 @@ def decrypt_file(file_path):
 # واجهة المستخدم الرسومية
 def browse_files():
     filename = filedialog.askopenfilename(initialdir="/", title="Select a File", filetypes=filetypes)
-    label_file_explorer.configure(text="File Opened: " + filename)
+    label_file_explorer.delete(0, "end")
+    label_file_explorer.insert(0,filename)
     return filename
 
 def encrypt_action():
@@ -77,7 +82,8 @@ def encrypt_action():
     if Encrypt:
             if file_path:
                 encrypt_file(file_path)
-                label_file_explorer.configure(text="File Encrypted: " + file_path)
+                label_file_explorer.delete(0, "end")
+                label_file_explorer.insert(0,file_path)
     else:
         messagebox.showinfo("هناك خطأ", "لم يتم تشفير الملف")
 
@@ -85,7 +91,8 @@ def decrypt_action():
     file_path = browse_files()
     if file_path:
         decrypt_file(file_path)
-        label_file_explorer.configure(text="File Decrypted: " + file_path)
+        label_file_explorer.delete(0,"end")
+        label_file_explorer.insert(0,file_path)
 
 # إعداد نافذه tkinter
 window = Tk()
@@ -98,7 +105,7 @@ frame_top = Frame(window, bg="#f0f0f0")
 frame_middle = Frame(window, bg="#f0f0f0")
 frame_bottom = Frame(window, bg="#f0f0f0")
 
-label_file_explorer = Label(frame_top, text="File Explorer using Tkinter", width=100, height=4, fg="blue", bg="#f0f0f0", font=('Helvetica', 14, 'bold'))
+label_file_explorer = ttk.Entry(frame_top , width=50 , justify=CENTER , font=15)
 #=========================================================
 button_encrypt = Button(frame_middle, text="Encrypt File", command=encrypt_action, bg="red", fg="white", font=('Helvetica', 12, 'bold'))
 button_encrypt.place(x=250,y=20)
@@ -116,7 +123,7 @@ frame_top.pack(pady=10)
 frame_middle.pack(pady=10)
 frame_bottom.pack(pady=10)
 
-label_file_explorer.pack()
+label_file_explorer.pack(expand=True,ipady=6,anchor=CENTER)
 button_encrypt.pack(side="left", padx=20)
 button_decrypt.pack(side="right", padx=20)
 #button_exit.pack()
